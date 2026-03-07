@@ -20,16 +20,15 @@ export class PortfolioComponent {
     {
       img: 'assets/images/pos.png',
       title: '寵物餐廳 POS 系統',
-      tech: 'Angular / Java / C# / Git',
+      tech: 'Angular / Java / Git',
       description: '參與登入模組與人資系統功能開發，負責前端畫面實作、後端 API 串接與測試，並透過 Git 進行團隊協作。',
-      link: 'https://github.com/Lonieget/POSSystem'
+      link: 'https://lonieget.github.io/PetRestaurant/login'
     },
     {
       img: 'assets/images/vr.png',
       title: 'VR 解謎遊戲',
-      tech: 'Unreal Engine / Blueprint',
-      description: '大學畢業專題。負責遊戲互動邏輯實作，設計解謎流程與機制，培養問題分析與模組化架構概念。',
-      link: 'https://github.com/Lonieget/VRGame'
+      tech: 'Unreal Engine',
+      description: '大學畢業專題。負責遊戲互動邏輯實作，設計解謎流程與機制，培養問題分析與模組化架構概念。'
     }
   ];
 }
