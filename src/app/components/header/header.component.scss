@@ -4,17 +4,17 @@
   left: 0;
   width: 100%;
   z-index: 1000;
+  padding: 24px 0;
   transition: var(--transition);
-  padding: 28px 0;
   background: transparent;
-}
 
-.glass-header.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
+  &.scrolled {
+    padding: 16px 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
 }
 
 .header-content {
@@ -24,47 +24,94 @@
 }
 
 .logo {
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   color: var(--text);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 32px;
 
   a {
     font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    font-weight: 500;
+    color: var(--text);
+    opacity: 0.7;
     transition: var(--transition);
 
     &:hover {
-      color: var(--text);
+      opacity: 1;
     }
+  }
 
-    &.btn-primary {
-      color: #fff;
-      padding: 8px 20px;
-      font-size: 0.8rem;
-      border-radius: 2px;
+  .nav-cta a {
+    opacity: 1;
+    font-size: 0.8rem;
+    color: #fff;
+  }
 
-      &:hover {
-        color: var(--text);
-        background: transparent;
-        border-color: var(--text);
-      }
+  .nav-cta a:hover {
+    color: #000000;
+  }
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  border-left: 1px solid var(--border);
+  margin-left: 8px;
+
+  button {
+    color: var(--text);
+    opacity: 0.7;
+    transition: var(--transition);
+
+    &:hover {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+::ng-deep .custom-lang-menu {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 8px !important;
+  margin-top: 8px !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+
+  .mat-mdc-menu-item {
+    font-family: inherit !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    min-height: 40px !important;
+    padding: 0 16px !important;
+
+    &.active {
+      background: rgba(0, 0, 0, 0.03);
+      color: #000;
+      font-weight: 700 !important;
     }
   }
 }
 
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
+    gap: 16px;
+
+    li:not(.nav-cta):not(.lang-toggle) {
+      display: none;
+    }
   }
 }

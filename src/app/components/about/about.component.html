@@ -1,52 +1,46 @@
 <section id="about" class="about">
   <div class="container">
     <div class="about-header">
-      <p class="section-label">About Me</p>
-      <h2 class="section-heading">關於我</h2>
+      <p class="section-label">{{ langService.translate('about.label') }}</p>
+      <h2 class="section-heading">{{ langService.translate('about.heading') }}</h2>
     </div>
 
     <div class="about-content">
-
-      <!-- 大頭照 -->
       <div class="about-photo">
         <div class="photo-frame">
-          <img src="assets/images/head.jpg" alt="鄭宇翔 Yuxiang Zheng" />
+          <img src="assets/images/head.jpg" [alt]="langService.translate('about.photo.name')" />
         </div>
         <div class="photo-caption">
-          <p class="photo-name">鄭宇翔</p>
-          <p class="photo-role">全端開發者 &amp; 軟體工程師</p>
+          <p class="photo-name">{{ langService.translate('about.photo.name') }}</p>
+          <p class="photo-role">{{ langService.translate('about.photo.role') }}</p>
         </div>
       </div>
 
-      <!-- 文字 + 技能 -->
       <div class="about-right">
         <div class="about-text">
-          <p>在大學期間，我參與了以 Unreal Engine 製作的 VR 解謎遊戲專題。逐漸對程式設計與系統邏輯產生濃厚興趣，並確立以軟體工程師作為未來的職涯發展方向。
-          </p>
-          <p>在畢業專題中，我主要負責遊戲互動邏輯與功能實作，透過 Unreal Engine 的 Blueprint 系統設計解謎流程與玩家互動機制。此專題讓我學習如何規劃系統流程、拆解功能需求，並在反覆測試與調整中培養除錯能力與問題分析能力，也讓我對大型專案架構與模組化設計建立初步概念。</p>
-          <p>服完兵役後，我給自己一段時間探索未來方向。在這段期間，我發現自己對程式設計的興趣與熱情，因此報名參加產業新尖兵計畫的万十科技全端工程師培訓。培訓課程採專案導向學習方式，期間完成個人專題「動態問卷系統」，以及團體專題 POS 系統中的登入模組與人資系統功能。</p>
-          <p>在「動態問卷系統」專題中，我負責系統功能設計與開發，使用 Angular 建立前端介面與互動功能，並透過 API 與後端服務進行資料串接，實作問卷建立、填寫與資料顯示等功能。在團體 POS 系統專案中，我參與登入模組與人資系統的功能開發，負責前端畫面實作、後端 API 串接以及系統測試與除錯，並透過 Git 進行版本控制與團隊協作，使我更加熟悉完整的軟體開發流程。</p>
-          <p>在技術能力方面，我具備 Angular 前端開發經驗，能設計使用者操作流程並實作互動介面；後端方面具備 Java 與 C# 的基礎，理解資料處理流程、系統邏輯設計以及前後端資料串接的基本架構。同時我也重視程式可維護性與開發規範，習慣在理解系統架構後再進行修改，並透過查閱官方文件與與團隊討論來提升問題解決效率。</p>
-          <p>未來，我希望能持續在軟體工程領域累積實務經驗，逐步深化前後端開發能力，並朝能獨立負責功能模組的全端工程師邁進。我相信憑藉穩定的學習能力、良好的邏輯思維以及對軟體開發的熱情，能在新鮮人階段快速成長，並為團隊帶來實質的技術貢獻。</p>
-
+          <p>{{ langService.translate('about.p1') }}</p>
+          <p>{{ langService.translate('about.p2') }}</p>
+          <p>{{ langService.translate('about.p3') }}</p>
+          <p>{{ langService.translate('about.p4') }}</p>
+          <p>{{ langService.translate('about.p5') }}</p>
+          <p>{{ langService.translate('about.p6') }}</p>
         </div>
 
         <div class="skills-grid">
           <div class="skill-card">
-            <h4>Front-end</h4>
+            <h4>{{ langService.translate('about.skill.frontend') }}</h4>
             <p>Angular, HTML, CSS, JavaScript</p>
           </div>
           <div class="skill-card">
-            <h4>Back-end</h4>
+            <h4>{{ langService.translate('about.skill.backend') }}</h4>
             <p>Java, C#, Spring Boot</p>
           </div>
           <div class="skill-card">
-            <h4>Tools &amp; Others</h4>
+            <h4>{{ langService.translate('about.skill.tools') }}</h4>
             <p>Git</p>
           </div>
         </div>
       </div>
-
     </div>
   </div>
-</section>
+</section>

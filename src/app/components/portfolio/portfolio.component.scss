@@ -1,10 +1,28 @@
 .portfolio {
-  background: var(--bg-alt);
-  border-bottom: 1px solid var(--border);
+  padding: 120px 0;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 20%, rgba(var(--accent-rgb, 17, 17, 17), 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(var(--accent-rgb, 17, 17, 17), 0.02) 0%, transparent 40%);
+    pointer-events: none;
+  }
 }
 
 .portfolio-header {
-  margin-bottom: 64px;
+  margin-bottom: 80px;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section-label {
@@ -25,76 +43,151 @@
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2px;
-  border: 1px solid var(--border);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+  padding: 8px;
 }
 
 .project-card {
-  background: var(--bg);
-  border: none;
-  border-radius: 0;
-  padding: 0;
+  position: relative;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: var(--transition);
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+              box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 
   &:hover {
-    background: var(--bg-alt);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.1);
 
     .project-img {
-      opacity: 0.85;
+      transform: scale(1.05);
+      filter: grayscale(0%);
+    }
+
+    .project-info h3 {
+      color: #000;
+    }
+
+    .tech-tag {
+      background: var(--text);
+      color: #fff;
     }
   }
 }
 
-.project-img {
+.project-img-wrapper {
+  position: relative;
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-  filter: grayscale(30%);
-  transition: var(--transition);
+  height: 240px;
+  overflow: hidden;
+  background: var(--bg-alt);
 }
 
-.overlay {
-  display: none;
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(40%);
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
+              filter 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .project-info {
-  padding: 28px 24px;
+  padding: 32px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--border);
+  justify-content: space-between;
 
   a {
     display: flex;
     flex-direction: column;
+    gap: 16px;
+    height: 100%;
+  }
+
+  .tech-container {
+    display: flex;
+    flex-wrap: wrap;
     gap: 8px;
-    color: inherit;
+    margin-bottom: 20px;
   }
 
   .tech-tag {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--text-muted);
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: var(--transition);
   }
 
   h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.4rem;
+    font-weight: 700;
     color: var(--text);
+    margin-bottom: 12px;
     letter-spacing: -0.01em;
+    transition: color 0.3s ease;
   }
 
   p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-muted);
-    line-height: 1.7;
+    line-height: 1.6;
     font-weight: 300;
+    margin-bottom: 24px;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Staggered animation delays for the first 6 projects
+@for $i from 1 through 6 {
+  .project-card:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.1s};
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 80px 0;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .project-img-wrapper {
+    height: 200px;
+  }
+
+  .project-info {
+    padding: 24px;
   }
 }

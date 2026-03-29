@@ -1,11 +1,11 @@
 <section id="home" class="hero">
   <div class="container hero-content">
     <div class="hero-text">
-      <p class="greeting">您好，我是</p>
-      <h1 class="name">鄭宇翔</h1>
-      <h2 class="title">全端開發者 &amp; 軟體工程師</h2>
+      <p class="greeting">{{ langService.translate('hero.greeting') }}</p>
+      <h1 class="name">{{ langService.translate('hero.name') }}</h1>
+      <h2 class="title">{{ langService.translate('hero.title') }}</h2>
       <p class="description">
-        從動畫與遊戲設計背景出發，專注於系統邏輯與網站全端開發。熱愛解決問題並持續學習，致力於打造優質的使用者體驗與系統架構。
+        {{ langService.translate('hero.description') }}
       </p>
 
       <div class="hero-skills">
@@ -42,9 +42,9 @@
       </div>
 
       <div class="cta-buttons">
-        <a href="#portfolio" class="btn-primary">查看作品集</a>
-        <a href="#about" class="btn-secondary">關於我</a>
+        <a href="#portfolio" class="btn-primary">{{ langService.translate('hero.cta.portfolio') }}</a>
+        <a href="#about" class="btn-secondary">{{ langService.translate('hero.cta.about') }}</a>
       </div>
     </div>
   </div>
-</section>
+</section>

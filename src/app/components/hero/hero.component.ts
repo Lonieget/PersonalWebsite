@@ -1,13 +1,14 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-hero',
-  imports: [MatIconModule],
+  standalone: true,
+  imports: [],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroComponent {
-
+  constructor(public langService: LanguageService) { }
 }

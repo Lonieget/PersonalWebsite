@@ -1,18 +1,22 @@
 <section id="portfolio" class="portfolio">
   <div class="container">
     <div class="portfolio-header">
-      <p class="section-label">Portfolio</p>
-      <h2 class="section-heading">作品集</h2>
+      <p class="section-label">{{ langService.translate('portfolio.label') }}</p>
+      <h2 class="section-heading">{{ langService.translate('portfolio.heading') }}</h2>
     </div>
 
     <div class="project-grid">
       <div *ngFor="let p of projects" class="project-card">
-        <img src="{{ p.img }}" alt="{{ p.title }}" class="project-img">
+        <div class="project-img-wrapper">
+          <img [src]="p.img" [alt]="langService.translate(p.titleKey)" class="project-img">
+        </div>
         <div class="project-info">
-          <a href="{{ p.link }}" target="_blank">
-            <span class="tech-tag">{{ p.tech }}</span>
-            <h3>{{ p.title }}</h3>
-            <p>{{ p.description }}</p>
+          <a [href]="p.link" target="_blank" [attr.disabled]="!p.link ? true : null">
+            <div class="tech-container">
+              <span *ngFor="let tech of p.tech.split(' / ')" class="tech-tag">{{ tech }}</span>
+            </div>
+            <h3>{{ langService.translate(p.titleKey) }}</h3>
+            <p>{{ langService.translate(p.descriptionKey) }}</p>
           </a>
         </div>
       </div>
