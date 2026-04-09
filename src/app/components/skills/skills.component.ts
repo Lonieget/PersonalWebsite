@@ -20,7 +20,7 @@ export class SkillsComponent {
         { name: 'Angular', level: 85 },
         { name: 'TypeScript', level: 80 },
         { name: 'HTML / CSS', level: 90 },
-        { name: 'JavaScript', level: 85 },
+        { name: 'JavaScript', level: 65 },
       ]
     },
     {
