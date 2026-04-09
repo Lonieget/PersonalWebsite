@@ -15,7 +15,7 @@ export class SkillsComponent {
   skillCategories = [
     {
       nameKey: 'skills.category.frontend',
-      icon: '💻',
+      icon: '',
       skills: [
         { name: 'Angular', level: 85 },
         { name: 'TypeScript', level: 80 },
@@ -25,7 +25,7 @@ export class SkillsComponent {
     },
     {
       nameKey: 'skills.category.backend',
-      icon: '⚙️',
+      icon: '',
       skills: [
         { name: 'Java', level: 70 },
         { name: 'C#', level: 75 },
@@ -34,7 +34,7 @@ export class SkillsComponent {
     },
     {
       nameKey: 'skills.category.tools',
-      icon: '🛠️',
+      icon: '',
       skills: [
         { name: 'Git / GitHub', level: 80 },
         { name: 'SourceTree', level: 70 }
